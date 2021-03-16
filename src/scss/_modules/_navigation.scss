@@ -7,14 +7,19 @@
 }
 
 nav{
-    background-color: red;
+    // background-color: red;
     width:100%;
     min-height:5vh;
     display:flex;
     justify-content: space-between;
+    align-items: center;
     a{
         text-decoration: none;
         color:white;
+        &:hover{
+            text-decoration: none;
+            color:lightgreen!important;
+        }
     }
 
     >div.mymenunav{
@@ -25,6 +30,32 @@ nav{
             list-style-type:none;
             display:flex;
             justify-content: space-around;
+            li{
+                padding:10px;
+                a{
+                    font-family: 'Jose-bold';
+                    font-size:0.8rem;
+                    text-transform: uppercase; 
+                    color:#ccc;
+                }
+                &:nth-child(2){
+                    // text-decoration: underline;
+                    position:relative;
+                    &::after{
+                        content:'v';
+                        font-size:0.7rem;
+                        position:absolute;
+                        top:50%;
+                        transform: translateY(-47%);
+                        color:#ccc;
+                    }
+                }
+                >ul.dropmenu{
+                    display:none;
+                    // display: flex;
+                    // flex-direction: column;
+                }
+            }
         }
     }
     
@@ -32,32 +63,45 @@ nav{
         ul{
             list-style: none;
             display:flex;
+            li{
+                a{
+                    i{
+                        font-size:0.8rem;
+                        padding:7px;
+                        color:#ccc;
+                    }
+                }
+            }
         }
     }
 }
 
-/*
 
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 650px){
     nav{
+        background-color: red;
         display:flex;
-        flex-direction: column;
-        align-items: flex-end;
+        flex-wrap: wrap;
         >a{
-            display:block;
-            margin:10px;
-            i{
-                color:white;
+            width:80%;
+            background-color: green;
+        }
+        >div.mymenunav{
+            background-color: yellow;
+            >a{
+                display:block;
+                width:20%;
+            }
+            >ul{
+                display:none;
             }
         }
-        >div.collapse{
-            ul{
-                display:flex;
-                flex-direction: column;
-            }
+
+        >div.icons{
+            background-color: orange;
+            margin:0 auto;
         }
     }
 }
 
-*/

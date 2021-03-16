@@ -7,14 +7,17 @@ function App() {
   return (
     <Fragment>
       <Router>
-        
+
         <Navigation />
 
         <Switch>
 
         </Switch>
       </Router>
-      <i className="fab fa-facebook-messenger"></i>
+
+      {/* <i className="fab fa-facebook-messenger"></i> */}
+
+      
     </Fragment>
   );
 }

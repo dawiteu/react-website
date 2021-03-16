@@ -11,15 +11,17 @@ const Navigation = () => {
                 <a href="###"><i className="fas fa-bars"></i></a> 
 
                 <ul>
+                    <li><NavLink to="/">Homme</NavLink></li>
                     <li>
-                        <NavLink to="/">Accueil</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about">About</NavLink>
+                        <a href="###">Gallerie</a>
+                        <ul class="dropmenu">
+                            <li><NavLink to="/gallery1">Gallery 1</NavLink></li>
+                            <li><NavLink to="/gallery2">Gallery 2</NavLink></li>
+                        </ul>
                     </li>   
-                    <li>
-                        <NavLink to="/shop">Shop</NavLink>
-                    </li>
+                    <li><NavLink to="/services">services</NavLink></li>
+                    <li><NavLink to="/about">About</NavLink></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li>
                 </ul>
             </div>
 
