@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom'; 
 
 const Navigation = () => {
@@ -8,14 +8,18 @@ const Navigation = () => {
 
     const [dispMobMenu, setDispMenu] = useState(false); // ouvert par def?  
     
-    const toggleGalMenu = () =>{
+    // ouverture ou vermeture du menu deroulant (gal 1 et 2 );
+    const toggleGalMenu = (e) =>{
+        //e.preventDefault();
         if(!dropGalmenu){
             setDropGalMenu(true);
+            
         }else{
             setDropGalMenu(false);
         }
     }
     
+    // verif de la tailel de l'ecran. si petit -> on ferme les menus. 
     const checkViewSize = () => {
         let size = window.innerWidth; 
         setWidth(size); 
@@ -25,10 +29,10 @@ const Navigation = () => {
         }
     }
     window.addEventListener("resize", checkViewSize); 
-
+    
+    // fermeture du menu mobile. 
     const toggleMobileMenu = (e) =>{
         e.preventDefault();
-        console.log('toggle');
         if(!dispMobMenu){
             setDispMenu(true);
         }else{
@@ -37,6 +41,18 @@ const Navigation = () => {
         }
     }
 
+    // fermeture du menu deroulant SI ouvert et click a l'exterieur ; 
+    const menuIsOpen = (e) =>{
+        //console.log(e); 
+        if(dropGalmenu){
+            if(e.target.outerText != "GALLERIE"){
+                setDropGalMenu(false);
+            }
+        }
+    }
+
+    document.addEventListener("click", (e) => menuIsOpen(e));
+
     return (
         <nav>
             <a href="###" className="bold">Photosen</a>
@@ -44,18 +60,18 @@ const Navigation = () => {
             <div className="mymenunav">
                 <a href="###" onClick={(e) => {toggleMobileMenu(e)}}><i className="fas fa-bars"></i></a> 
 
-                <ul className={dispMobMenu && 'dmobileMenu'}>
-                    <li><NavLink to="/">Homme</NavLink></li>
+                <ul className={dispMobMenu ? 'dmobileMenu' : ''}>
+                    <li><NavLink to="/" exact activeClassName="activemenu">Homme</NavLink></li>
                     <li>
-                        <a href="###" onClick={toggleGalMenu}>Gallerie</a>
-                        <ul className={`dropmenu ${dropGalmenu ? `activated` : `` }`}>
-                            <li><NavLink to="/gallery1">Gallery 1</NavLink></li>
-                            <li><NavLink to="/gallery2">Gallery 2</NavLink></li>
+                        <a href="###" onClick={(e) => { toggleGalMenu(e) } }>Gallerie</a>
+                        <ul className={`dropmenu ${dropGalmenu && `activated` }`}>
+                            <li><NavLink exact to="/gallery1" onClick={(e) => { toggleGalMenu(e) } } activeClassName="activemenu">Gallery 1</NavLink></li>
+                            <li><NavLink exact to="/gallery2" onClick={(e) => { toggleGalMenu(e) } } activeClassName="activemenu">Gallery 2</NavLink></li>
                         </ul>
                     </li>   
-                    <li><NavLink to="/services">services</NavLink></li>
-                    <li><NavLink to="/about">About</NavLink></li>
-                    <li><NavLink to="/contact">Contact</NavLink></li>
+                    <li><NavLink exact to="/services" activeClassName="activemenu">services</NavLink></li>
+                    <li><NavLink exact to="/about" activeClassName="activemenu">About</NavLink></li>
+                    <li><NavLink exact to="/contact" activeClassName="activemenu">Contact</NavLink></li>
                 </ul>
             </div>
 

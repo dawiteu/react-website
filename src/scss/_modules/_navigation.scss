@@ -46,6 +46,9 @@ nav{
                     font-size:0.8rem;
                     text-transform: uppercase; 
                     color:#ccc;
+                    &.activemenu{
+                        color:lightgreen;
+                    }
                 }
                 &:nth-child(2){
                     // text-decoration: underline;
