@@ -1,9 +1,17 @@
 .dblock{
-    display:block;
+    display:block!important;
 }
 
 .dnone{
-    display: none; 
+    display: none!important; 
+}
+
+.dmobileMenu{
+    display:flex!important;
+    flex-direction: column;
+    background-color: white;
+    position:absolute!important;
+    right:0;
 }
 
 nav{
@@ -30,6 +38,7 @@ nav{
             list-style-type:none;
             display:flex;
             justify-content: space-around;
+            position:relative;
             li{
                 padding:10px;
                 a{
@@ -52,8 +61,24 @@ nav{
                 }
                 >ul.dropmenu{
                     display:none;
-                    // display: flex;
-                    // flex-direction: column;
+                    background-color: white;
+                    li {
+                        a{
+                            color:black;
+                        }
+                        >ul{
+                            position:relative;
+                        }
+                    }
+                    //
+                    &.activated{
+                        position:absolute;
+                        width:max-content;
+                        padding-left:3px;
+                        padding-right:3px;
+                        display: flex;
+                        flex-direction: column;
+                    }
                 }
             }
         }
@@ -80,26 +105,37 @@ nav{
 
 @media screen and (max-width: 650px){
     nav{
-        background-color: red;
+        // background-color: red;
         display:flex;
         flex-wrap: wrap;
         >a{
             width:80%;
-            background-color: green;
+            // background-color: green;
         }
         >div.mymenunav{
-            background-color: yellow;
+            // background-color: yellow;
             >a{
                 display:block;
                 width:20%;
             }
             >ul{
                 display:none;
+                // background-color: red;
+                ul.dropmenu{
+                    // background-color: blue!important;
+                    padding-left:0px;
+                    padding-right:0px;
+                    right:1%;
+                    position:absolute;
+                    &::after{
+                        content:'';
+                    }
+                }
             }
         }
 
         >div.icons{
-            background-color: orange;
+            // background-color: orange;
             margin:0 auto;
         }
     }
