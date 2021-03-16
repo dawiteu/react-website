@@ -1,0 +1,37 @@
+//font 
+@import "./fonts"; 
+//variables
+
+
+
+// imports 
+@import "../../node_modules/bootstrap//dist/css/bootstrap.css"; 
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.css"; 
+
+@import "./_modules/navigation";
+
+
+
+//mixed
+
+*{
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+    font-family:'Jose';
+    font-size:1.5rem;
+}
+
+body{
+    background-color: #000;
+    color:white;
+}
+
+.bold{
+    font-family: 'Jose-bold';
+    font-weight: "bold";
+}
+
+.light{
+    font-family: "Jose-light";
+}
