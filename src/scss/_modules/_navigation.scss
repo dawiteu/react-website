@@ -39,6 +39,7 @@ nav{
             display:flex;
             justify-content: space-around;
             position:relative;
+            z-index:2150;
             li{
                 padding:10px;
                 a{
@@ -81,6 +82,7 @@ nav{
                         padding-right:3px;
                         display: flex;
                         flex-direction: column;
+                        z-index:2000;
                     }
                 }
             }

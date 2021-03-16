@@ -28,6 +28,7 @@ const Navigation = () => {
             setDropGalMenu(false);
         }
     }
+
     window.addEventListener("resize", checkViewSize); 
     
     // fermeture du menu mobile. 
@@ -43,11 +44,18 @@ const Navigation = () => {
 
     // fermeture du menu deroulant SI ouvert et click a l'exterieur ; 
     const menuIsOpen = (e) =>{
-        //console.log(e); 
+        console.log(e); 
         if(dropGalmenu){
             if(e.target.outerText != "GALLERIE"){
                 setDropGalMenu(false);
             }
+        }
+
+        if(dispMobMenu){
+            //console.log(e); 
+            //if(e.target != "li" || e.target != "i"){
+               // setDispMenu(false);
+            //}
         }
     }
 
