@@ -9,6 +9,9 @@ import Services from './pages/Services';
 import About from './pages/About'; 
 import Contact from './pages/Contact'; 
 
+import Footer from './components/Footer';
+
+
 function App() {
   return (
     <div className="container-fluid">
@@ -22,6 +25,8 @@ function App() {
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
         </Switch>
+
+        <Footer/>
       </Browser>
     </div>
   );

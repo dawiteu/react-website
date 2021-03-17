@@ -38,7 +38,6 @@ const Navigation = () => {
             setDispMenu(true);
         }else{
             setDispMenu(false);
-            setDropGalMenu(false);
         }
     }
 
@@ -48,6 +47,7 @@ const Navigation = () => {
         if(dropGalmenu){
             if(e.target.outerText != "GALLERIE"){
                 setDropGalMenu(false);
+                setDispMenu(false);
             }
         }
 
