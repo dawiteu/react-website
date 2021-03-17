@@ -99,6 +99,9 @@ nav{
                         font-size:0.8rem;
                         padding:7px;
                         color:#ccc;
+                        &:hover{
+                            color:white;
+                        }
                     }
                 }
             }

@@ -9,10 +9,10 @@ footer{
         a{
             font-size:0.8rem;
             text-decoration: underline;
-            color:white;
+            color:lightgreen;
             transition: color 1s, text-decoration 4s;
             &:hover{ 
-                color:lightblue; 
+                color:white;
                 text-decoration: none;
             }
         }

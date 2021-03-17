@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom'; 
 
 const Navigation = () => {
@@ -43,9 +43,9 @@ const Navigation = () => {
 
     // fermeture du menu deroulant SI ouvert et click a l'exterieur ; 
     const menuIsOpen = (e) =>{
-        console.log(e); 
+        //console.log(e); 
         if(dropGalmenu){
-            if(e.target.outerText != "GALLERIE"){
+            if(e.target.outerText !== "GALLERIE"){
                 setDropGalMenu(false);
                 setDispMenu(false);
             }

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import {Link} from 'react-router-dom'; 
 
 const Home = () => {
 
@@ -13,18 +14,25 @@ const Home = () => {
         {title: "livre 2", link: "./imgs/img_4.jpg"},
         {title: "ecran 2", link: "./imgs/img_3.jpg"}
     ];
+
+    const randNumb = () => {
+        const numb = Math.floor(Math.random() * 10) + 1;
+        return numb % 2 === 0 ? '1' : '2';
+    }
      //  
     return (
         <Fragment>
             <div className="row">
-            {images.map((el) =>
-                <div className="col-md-4 col-sm-6 mx-auto">
+            {images.map((el,i) =>
+                <div className="col-md-4 col-sm-6 mx-auto" key={i}>
                     <div className="card">
                         <div className="image-info">
-                            <button className="card-title">Voir +</button>
                             <p className="card-title">{el.title}</p>
+                            <Link to={`gallery`+randNumb()}>
+                                <button className="card-title">more photos</button>
+                            </Link>
                         </div> 
-                        <img src={el.link} className="imgOver" />
+                        <img src={el.link} className="imgOver" alt={el.title} />
                     </div>
                 </div>
             )}
