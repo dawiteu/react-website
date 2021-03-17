@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom'; 
 
 const Navigation = () => {
@@ -35,28 +35,33 @@ const Navigation = () => {
     const toggleMobileMenu = (e) =>{
         e.preventDefault();
         if(!dispMobMenu){
+            console.log('open');
             setDispMenu(true);
         }else{
+            console.log('close');
             setDispMenu(false);
         }
     }
 
     // fermeture du menu deroulant SI ouvert et click a l'exterieur ; 
     const menuIsOpen = (e) =>{
-        //console.log(e); 
+        /*
         if(dropGalmenu){
             if(e.target.outerText !== "GALLERIE"){
-                setDropGalMenu(false);
-                setDispMenu(false);
+                console.log('click a lexetiertie' );
+                //setDropGalMenu(false);
+                //setDispMenu(false);
             }
         }
 
         if(dispMobMenu){
+            console.log('menu mobile ouvert');
             //console.log(e); 
             //if(e.target != "li" || e.target != "i"){
                // setDispMenu(false);
             //}
         }
+        */
     }
 
     document.addEventListener("click", (e) => menuIsOpen(e));
